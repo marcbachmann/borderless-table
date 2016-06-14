@@ -1,0 +1,30 @@
+{
+  "name": "borderless-table",
+  "version": "1.0.0",
+  "description": "Takes a collection and outputs a borderless table in the terminal or browser console.",
+  "main": "table.js",
+  "scripts": {
+    "test": "standard && node test.js"
+  },
+  "author": "Marc Bachmann <marc.brookman@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^7.1.2"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcbachmann/borderless-table.git"
+  },
+  "keywords": [
+    "table",
+    "terminal",
+    "borderless",
+    "text",
+    "tty"
+  ],
+  "bugs": {
+    "url": "https://github.com/marcbachmann/borderless-table/issues"
+  },
+  "homepage": "https://github.com/marcbachmann/borderless-table#readme"
+}
