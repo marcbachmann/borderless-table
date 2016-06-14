@@ -4,14 +4,14 @@ Takes a collection and outputs a borderless table in the terminal or browser con
 
 # API
 
-```
-var table = require('tty-table')
+```javascript
+var table = require('borderless-table')
 table(collection, [columns], [columnLabels], [stdout])
 ```
 
 
 ### Output keys that are contained in the first object
-```
+```javascript
 table([
   {name: 'Tokyo', country: 'Japan'},
   {name: 'New York', country: 'USA'},
@@ -28,7 +28,7 @@ table([
 ```
 
 ### Output specific properties
-```
+```javascript
 table([
   {name: 'Tokyo', country: 'Japan'},
 ], ['name'])
