@@ -1,6 +1,6 @@
 {
   "name": "borderless-table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Takes a collection and outputs a borderless table in the terminal or browser console.",
   "main": "table.js",
   "scripts": {
