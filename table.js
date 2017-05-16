@@ -18,7 +18,7 @@ function table (json, rows, headers, stdout) {
 
   var str = header + '\n' +
     pad('', header.length, '-') + '\n' +
-    map(json, toLines(rows, lengths)).join('\n')
+    map(json, toLines(rows, lengths)).join('\n') + '\n'
 
   stdout.write(str)
   return str

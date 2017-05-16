@@ -13,22 +13,25 @@ var test1 = table([
 assert.equal(typeof test1, 'string', 'Returns the table as string')
 
 var lines1 = test1.split('\n')
-assert.equal(test1.split('\n').length, 6, 'Table has 6 lines with the header and "-"-row')
-assert.ok(/^name/.test(lines1[0]))
-assert.ok(/^-*$/.test(lines1[1]))
-assert.ok(/^Tokyo/.test(lines1[2]))
-assert.ok(/^New York/.test(lines1[3]))
-
-// Country begins at char 11 (sao paulo length & '  ' spaces)
-assert.ok(/^.{11}country/.test(lines1[0]))
-assert.ok(/^.{11}Japan/.test(lines1[2]))
+assert.equal(lines1.length, 7, 'Table has 6 lines with the header, "-"-row and newline at end')
+assert.equal(test1, [
+  'name       country    ',
+  '----------------------',
+  'Tokyo      Japan      ',
+  'New York   USA        ',
+  'São Paulo  Brazil     ',
+  'Zürich     Switzerland',
+  ''
+].join('\n'))
 
 // all lines have the same length
-lines1.forEach(function (line) {
-  assert.equal(line.length, 22)
+lines1.forEach(function (line, i) {
+  // except last line which is only there because of a newline char
+  if (i < lines1.length - 1) assert.equal(line.length, 22)
+  else assert.equal(line.length, 0)
 })
 
-console.log('\nSpecific columns')
+console.log('Specific columns')
 var test2 = table([
   {name: 'Tokyo', country: 'Japan'},
   {name: 'New York', country: 'USA'},
@@ -36,11 +39,17 @@ var test2 = table([
   {name: 'Zürich', country: 'Switzerland'}
 ], ['country'])
 
-var lines2 = test2.split('\n')
-assert.ok(/^country/.test(lines2[0]))
-assert.ok(/^Japan/.test(lines2[2]))
+assert.equal(test2, [
+  'country    ',
+  '-----------',
+  'Japan      ',
+  'USA        ',
+  'Brazil     ',
+  'Switzerland',
+  ''
+].join('\n'))
 
-console.log('\nLabels')
+console.log('Labels')
 var test3 = table([
   {name: 'Tokyo', country: 'Japan'},
   {name: 'New York', country: 'USA'},
@@ -48,6 +57,12 @@ var test3 = table([
   {name: 'Zürich', country: 'Switzerland'}
 ], ['name'], ['Some cities'])
 
-var lines3 = test3.split('\n')
-assert.ok(/^Some cities/.test(lines3[0]))
-assert.ok(/^Tokyo/.test(lines3[2]))
+assert.equal(test3, [
+  'Some cities',
+  '-----------',
+  'Tokyo      ',
+  'New York   ',
+  'São Paulo  ',
+  'Zürich     ',
+  ''
+].join('\n'))
