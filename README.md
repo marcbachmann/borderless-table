@@ -1,5 +1,7 @@
 # borderless-table
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/marcbachmann/borderless-table.svg)](https://greenkeeper.io/)
+
 Takes a collection and outputs a borderless table in the terminal or browser console.
 
 # API
